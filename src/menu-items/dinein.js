@@ -30,7 +30,7 @@ const dinein = {
             id: 'util-orders',
             title: 'Orders',
             type: 'item',
-            url: '/utils/util-shadow',
+            url: '/utils/dinein-orders',
             icon: icons.IconShadow,
             breadcrumbs: false
         },
