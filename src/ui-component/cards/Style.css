@@ -1,0 +1,15 @@
+.ordercard-wrapper{
+font-weight: 600;
+}
+.ordercard-header{
+    padding: 9px 9px;
+
+    display: flex;
+    justify-content: space-between;
+}
+.ordercard-header-number{
+    
+    background-color: #FD9A31;
+    padding: 9px 9px;
+    border-radius: 20%;
+}

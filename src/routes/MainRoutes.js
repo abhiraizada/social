@@ -6,6 +6,7 @@ import Loadable from 'ui-component/Loadable';
 import TableManager from 'views/dinein/Tables';
 import Tables from 'views/dinein/Tables';
 import Orders from 'views/dinein/Orders';
+import OrdersCard from 'views/dinein/OrdersCard';
 
 // dashboard routing
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')));
@@ -64,7 +65,7 @@ const MainRoutes = {
         },
         {
             path: '/utils/dinein-orders',
-            element: <Orders />
+            element: <OrdersCard />
         },
         {
             path: '/utils/takeaway-orders',
