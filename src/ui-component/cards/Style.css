@@ -1,15 +1,21 @@
 .ordercard-wrapper{
-font-weight: 600;
 }
 .ordercard-header{
+
     padding: 9px 9px;
 
     display: flex;
     justify-content: space-between;
 }
 .ordercard-header-number{
-    
+    color: #FFE2C4;
     background-color: #FD9A31;
-    padding: 9px 9px;
+    padding: 4px 4px;
     border-radius: 20%;
+}
+.ordercard-header-time{
+    font-weight: 800;
+font-size: large;
+    padding: 4px 4px;
+
 }
