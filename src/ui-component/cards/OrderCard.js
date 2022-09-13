@@ -15,7 +15,7 @@ import { ConsoleView } from 'react-device-detect';
 function OrderCard({ order }) {
 
     const [duration, setduration] = useState(0)
-    const [palcedAt, setpalcedAt] = useState(moment('08.18.2022 01:01:03'))
+    const [palcedAt, setpalcedAt] = useState(moment('15:44:06','HH:mm:ss'))
     const [expanded, setexpanded] = useState(false)
 
     const expandedToggle=(e)=>{
@@ -39,14 +39,21 @@ function OrderCard({ order }) {
             return "#FD7085";
         }
     }
+    // useEffect(() => {
+    //     var now = moment()
+    //     const interval = setInterval(() => {
+    //         setduration(moment.duration(now.diff(palcedAt)))
+    //     }, 1000);
+    //     return () => clearInterval(duration);
+        
+    // }, [duration._data?.seconds])
     useEffect(() => {
         var now = moment()
-        const interval = setInterval(() => {
-            setduration(moment.duration(now.diff(palcedAt)))
-        }, 1000);
-        return () => clearInterval(interval);
-    }, [duration._data?.seconds])
 
+        var minutesPassed = moment.duration(now.diff(palcedAt));
+        setduration(minutesPassed)
+    }, [duration])
+   
 
     return (
         <div > <Card sx={{ minWidth: 300, border: 3, borderColor: boxcolor() }}>
@@ -64,7 +71,7 @@ function OrderCard({ order }) {
                             <DiningIcon style={{ color: "#393C3A" }} />
                         </div >
                         <div >
-                            {console.log(expanded)}
+                            {/* {console.log(expanded)} */}
                         {expanded ?<CloseIcon onClick={(e)=>{setexpanded(false)}} style={{ color: "#FDAA66" }} />: <OpenInFullIcon onClick={(e)=>{setexpanded(true)}}/>}
 
                         </div>

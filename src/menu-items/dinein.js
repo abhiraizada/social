@@ -22,7 +22,7 @@ const dinein = {
             id: 'util-tables',
             title: 'Tables',
             type: 'item',
-            url: '/utils/util-color',
+            url: '/utils/dinein-tables',
             icon: TableRestaurantIcon,
             breadcrumbs: false
         },

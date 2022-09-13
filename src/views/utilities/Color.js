@@ -62,7 +62,7 @@ const UIColor = () => (
     <MainCard  secondary={<SecondaryAction link="https://next.material-ui.com/system/palette/" />}>
         <Grid container spacing={gridSpacing}>
             <Grid item xs={12}>
-                <SubCard title={T.manage_tables}>
+                <SubCard title={"jnjfsd"}>
                     <Grid container spacing={gridSpacing}>
                         <Grid item xs={12} sm={6} md={4} lg={2}>
                         <ColorBox onclick={()=>console.log("hi")} bgcolor="success.dark" data={{ label: 'Green-A700', color: '#00c853' }} title="1" />

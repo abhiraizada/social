@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // material-ui
-import { Box, Card, Grid, Typography } from '@mui/material';
+import { Box, Button, Card, Grid, Modal, Stack, TextField, Typography } from '@mui/material';
 
 // project imports
 import SubCard from 'ui-component/cards/SubCard';
@@ -9,15 +9,37 @@ import MainCard from 'ui-component/cards/MainCard';
 import SecondaryAction from 'ui-component/cards/CardSecondaryAction';
 import { gridSpacing } from 'store/constant';
 import T from 'saas-manager/T';
+import { useState } from 'react';
 
 // ===============================|| COLOR BOX ||=============================== //
 
-const ColorBox = ({ onclick, bgcolor, title, data, dark }) => (
+function createData(tableid, status, note, color) {
+    return {
+        tableid, status, note, color
+    };
+}
+
+const rows = [
+    createData('tableid001', "available","This table is available",  '#00c853'),
+    createData('tableid002', "occupied", " Someone sitting", '#c62828'),
+    createData('tableid003', "reserved", "reserved for 5", "#FFC007"),
+    createData('tableid004', "reserved", "reserved for 5", "#FFC007"),
+    createData('tableid005', "available", 'Green-A700', '#00c853'),
+    createData('tableid006', "reserved", "reserved for 5", "#FFC007"),
+    createData('tableid007', "occupied", 'occupied by 3', '#c62828'),
+    createData('tableid008', "occupied", 'occupied by 8', '#c62828'),
+    createData('tableid009', "unavailable", "wet floor", '#2096F3' ),
+    createData('tableid0010', "available", 'Green-A700', '#00c853'),
+    createData('tableid0011', "unavailable", "wet floor", '#2096F3'),
+
+
+];
+const TableBox = ({ onclick, bgcolor, title, data, dark }) => (
     <>
-        <Card onClick={onclick} sx={{ mb: 3 }} style={{cursor: "pointer"}}>
+        <Card onClick={onclick} sx={{ mb: 3 }} style={{ cursor: "pointer" }}>
             <Box
                 sx={{
-                    
+
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -49,7 +71,7 @@ const ColorBox = ({ onclick, bgcolor, title, data, dark }) => (
     </>
 );
 
-ColorBox.propTypes = {
+TableBox.propTypes = {
     bgcolor: PropTypes.string,
     title: PropTypes.string,
     data: PropTypes.object.isRequired,
@@ -58,45 +80,110 @@ ColorBox.propTypes = {
 
 // ===============================|| UI COLOR ||=============================== //
 
-const Tables = () => (
-    <MainCard  secondary={<SecondaryAction link="https://next.material-ui.com/system/palette/" />}>
-        <Grid container spacing={gridSpacing}>
-            <Grid item xs={12}>
-                <SubCard title={T.manage_tables}>
-                    <Grid container spacing={gridSpacing}>
-                        <Grid item xs={12} sm={6} md={4} lg={2}>
-                        <ColorBox onclick={()=>console.log("hi")} bgcolor="success.dark" data={{ label: 'Green-A700', color: '#00c853' }} title="1" />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={2}>
-                        <ColorBox bgcolor="success.dark" data={{ label: 'Green-A700', color: '#00c853' }} title="1" />
-                        </Grid><Grid item xs={12} sm={6} md={4} lg={2}>
-                        <ColorBox bgcolor="success.dark" data={{ label: 'Green-A700', color: '#00c853' }} title="1" />
-                        </Grid><Grid item xs={12} sm={6} md={4} lg={2}>
-                        <ColorBox bgcolor="success.dark" data={{ label: 'Green-A700', color: '#00c853' }} title="1" />
-                        </Grid><Grid item xs={12} sm={6} md={4} lg={2}>
-                        <ColorBox bgcolor="success.dark" data={{ label: 'Green-A700', color: '#00c853' }} title="1" />
-                        </Grid><Grid item xs={12} sm={6} md={4} lg={2}>
-                        <ColorBox bgcolor="success.dark" data={{ label: 'Green-A700', color: '#00c853' }} title="1" />
-                        </Grid><Grid item xs={12} sm={6} md={4} lg={2}>
-                        <ColorBox bgcolor="success.dark" data={{ label: 'Green-A700', color: '#00c853' }} title="1" />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={2}>
-                        <ColorBox bgcolor="error.dark" data={{ label: 'Red-800', color: '#c62828' }} title="2" />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={2}>
-                            <ColorBox bgcolor="error.dark" data={{ label: 'Green-A700', color: '#00c853'  }} title="3" />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={2}>
-                            <ColorBox bgcolor="error.dark" data={{ label: 'Green-A700', color: '#00c853'  }} title="4" />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={2}>
-                            <ColorBox bgcolor="success.dark" data={{ label: 'Red-800', color: '#c62828'}} title="5" />
-                        </Grid>
+const Tables = () => {
+    const [showDetails, setshowDetails] = useState(false)
+    const [currentTable, setcurrentTable] = useState(null)
+    return (
+        <>
+
+            <div style={{ color: "red" }}><Modal
+                open={showDetails}
+                onClose={null}
+                aria-labelledby="parent-modal-title"
+                aria-describedby="parent-modal-description"
+            >
+                <div style={{ backgroundColor: "red" }}><Box sx={{
+                    width: '100%',
+                    maxWidth: '20vw',
+                    maxHeight: '100%',
+                    position: 'fixed',
+                    padding: '20px 20px 20px 20px',
+                    top: '40%',
+                    left: '40%',
+                    transform: 'translate(0, -50%)',
+                    background: 'white',
+                    overflowY: 'auto'
+                }}>
+                    <Stack
+                        component="form"
+                        sx={{
+                            width: 'auto',
+                        }}
+                        spacing={2}
+                        noValidate
+                        autoComplete="off"
+                    >
+                        <TextField
+                            label="Quantity"
+                            id="filled-hidden-label-small"
+                            defaultValue={10}
+                            variant="filled"
+                            type="number"
+
+                            onChange={() => { }}
+                        />
+                        <TextField
+                            hiddenLabel
+                            id="filled-hidden-label-normal"
+                            defaultValue={10}
+                            variant="filled"
+                        />
+                        <TextField
+                            hiddenLabel
+                            id="filled-hidden-label-normal"
+                            defaultValue="Normal"
+                            variant="filled"
+                        />
+                        <TextField
+                            hiddenLabel
+                            id="filled-hidden-label-normal"
+                            defaultValue="Normal"
+                            variant="filled"
+                        />
+                        <TextField
+                            hiddenLabel
+                            id="filled-hidden-label-normal"
+                            defaultValue="Normal"
+                            variant="filled"
+                        />
+
+                    </Stack>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <Button onClick={() => { setshowDetails(false) }}>Cancel</Button>
+                        <Button onClick={() => { console.log() }}>Save</Button>
+                    </div>
+                </Box>
+                </div>
+            </Modal>
+            </div>
+            <MainCard secondary={<SecondaryAction link="https://next.material-ui.com/system/palette/" />}>
+                <Grid container spacing={gridSpacing}>
+                    <Grid item xs={12}>
+                        <SubCard title={T.manage_tables}>
+                            <Grid container spacing={gridSpacing}>
+                                {rows.map(element => (
+                                    <Grid item xs={12} sm={6} md={4} lg={2}>
+                                        <TableBox onclick={() => {
+                                            setshowDetails(true)
+                                            console.log(element.status)
+                                        }} bgcolor={element.color} data={{ label: 'Green-A700', color: '#00c853' }} title="1" />
+                                    </Grid>
+                                ))}
+
+                                {/* <Grid item xs={12} sm={6} md={4} lg={2}>
+                                    <TableBox onclick={() => { setshowDetails(true), setcurrentTable() }} bgcolor="success.dark" data={{ label: 'Green-A700', color: '#00c853' }} title="1" />
+                                </Grid> */}
+
+                            </Grid>
+                        </SubCard>
                     </Grid>
-                </SubCard>
-            </Grid>
-        </Grid>
-    </MainCard>
-);
+                </Grid>
+            </MainCard>
+        </>
+    )
+
+
+}
+
 
 export default Tables;
