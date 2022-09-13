@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // material-ui
-import { Box, Button, Card, Grid, Modal, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, Card, FormControl, FormControlLabel, FormLabel, Grid, Modal, Radio, RadioGroup, Stack, TextField, Typography } from '@mui/material';
 
 // project imports
 import SubCard from 'ui-component/cards/SubCard';
@@ -10,6 +10,7 @@ import SecondaryAction from 'ui-component/cards/CardSecondaryAction';
 import { gridSpacing } from 'store/constant';
 import T from 'saas-manager/T';
 import { useState } from 'react';
+import { TableModal } from 'ui-component/modals/TableModal';
 
 // ===============================|| COLOR BOX ||=============================== //
 
@@ -82,80 +83,9 @@ TableBox.propTypes = {
 
 const Tables = () => {
     const [showDetails, setshowDetails] = useState(false)
-    const [currentTable, setcurrentTable] = useState(null)
     return (
         <>
-
-            <div style={{ color: "red" }}><Modal
-                open={showDetails}
-                onClose={null}
-                aria-labelledby="parent-modal-title"
-                aria-describedby="parent-modal-description"
-            >
-                <div style={{ backgroundColor: "red" }}><Box sx={{
-                    width: '100%',
-                    maxWidth: '20vw',
-                    maxHeight: '100%',
-                    position: 'fixed',
-                    padding: '20px 20px 20px 20px',
-                    top: '40%',
-                    left: '40%',
-                    transform: 'translate(0, -50%)',
-                    background: 'white',
-                    overflowY: 'auto'
-                }}>
-                    <Stack
-                        component="form"
-                        sx={{
-                            width: 'auto',
-                        }}
-                        spacing={2}
-                        noValidate
-                        autoComplete="off"
-                    >
-                        <TextField
-                            label="Quantity"
-                            id="filled-hidden-label-small"
-                            defaultValue={10}
-                            variant="filled"
-                            type="number"
-
-                            onChange={() => { }}
-                        />
-                        <TextField
-                            hiddenLabel
-                            id="filled-hidden-label-normal"
-                            defaultValue={10}
-                            variant="filled"
-                        />
-                        <TextField
-                            hiddenLabel
-                            id="filled-hidden-label-normal"
-                            defaultValue="Normal"
-                            variant="filled"
-                        />
-                        <TextField
-                            hiddenLabel
-                            id="filled-hidden-label-normal"
-                            defaultValue="Normal"
-                            variant="filled"
-                        />
-                        <TextField
-                            hiddenLabel
-                            id="filled-hidden-label-normal"
-                            defaultValue="Normal"
-                            variant="filled"
-                        />
-
-                    </Stack>
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
-                        <Button onClick={() => { setshowDetails(false) }}>Cancel</Button>
-                        <Button onClick={() => { console.log() }}>Save</Button>
-                    </div>
-                </Box>
-                </div>
-            </Modal>
-            </div>
+<TableModal setshowDetails={setshowDetails} visibility={showDetails}/>
             <MainCard secondary={<SecondaryAction link="https://next.material-ui.com/system/palette/" />}>
                 <Grid container spacing={gridSpacing}>
                     <Grid item xs={12}>
