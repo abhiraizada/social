@@ -15,7 +15,7 @@ export const TableModal = ({table, setshowDetails, visibility}) => {
 >
     <div style={{ backgroundColor: "red" }}><Box sx={{
         width: '100%',
-        maxWidth: '35vw',
+        maxWidth: '30vw',
         maxHeight: '100%',
         position: 'fixed',
         padding: '20px 20px 20px 20px',
