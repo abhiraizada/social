@@ -39,39 +39,41 @@ function createData(orderid, tNumber, items, status, placedAt) {
     };
 }
 const useStyles = makeStyles(theme => ({
-   
+    root: {
+      padding: theme.spacing(12, 4),
+    },
     card: {
-        height: '100%',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        border: '1px solid black',
-        borderRadius: '5px',
-        textAlign: 'center',
+      height: '100%',
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      border: '1px solid black',
+      borderRadius: '5px',
+      textAlign: 'center',
     },
     icon: {
-        padding: theme.spacing(2, 0),
+      padding: theme.spacing(2, 0),
     },
     title: {
-        padding: theme.spacing(2),
+      padding: theme.spacing(2),
     },
     featureList: {
-        padding: theme.spacing(2),
+      padding: theme.spacing(2),
     },
-}));
+  }));
 const styles = theme => ({
     root: {
-        flexGrow: 0,
-        width: 100
+      flexGrow: 0,
+      width:100
     },
     paper: {
-        padding: theme.spacing.unit * 2,
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
+      padding: theme.spacing.unit * 2,
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
     },
-});
-
+  });
+  
 const rows = [
     createData('Cupcake', 305, 3.7, 67, 4.3),
     createData('Donut', 452, 25.0, 51, 4.9),
@@ -302,86 +304,12 @@ const orders = [{
         quantity: 1,
         price: '30 CAD',
         specialNotes: ''
-    },
-    ],
-},
-{
-    orderType: 'takeAway',
-    id: "122",
-    items: [{
-        name: 'Bacardi',
-        type: 'drinks',
-        quantity: 1,
-        price: '10 CAD',
-        specialNotes: 'On ice.',
-    },
-    {
-        name: 'Paneer tikka',
-        type: 'food',
-        quantity: 1,
-        price: '30 CAD',
-        specialNotes: 'Less oily.'
-    },
-    {
-        name: 'Hakka Noodles',
-        type: 'food',
-        quantity: 1,
-        price: '30 CAD',
-        specialNotes: ''
-    },
-    ],
-},
-{
-    orderType: 'delivery',
-    id: "122",
-    items: [{
-        name: 'Bacardi',
-        type: 'drinks',
-        quantity: 1,
-        price: '10 CAD',
-        specialNotes: 'On ice.',
-    },
-    {
-        name: 'Paneer tikka',
-        type: 'food',
-        quantity: 1,
-        price: '30 CAD',
-        specialNotes: 'Less oily.'
-    },
-    {
-        name: 'Hakka Noodles',
-        type: 'food',
-        quantity: 1,
-        price: '30 CAD',
-        specialNotes: ''
-    },
-    ],
-},
-{
-    orderType: 'dineIn',
-    id: "122",
-    items: [{
-        name: 'Bacardi',
-        type: 'drinks',
-        quantity: 1,
-        price: '10 CAD',
-        specialNotes: 'On ice.',
-    },
-    {
-        name: 'Paneer tikka',
-        type: 'food',
-        quantity: 1,
-        price: '30 CAD',
-        specialNotes: 'THIS IS A REALALY REALLY LONG DESCRIPTION THAT CAN BE THERE IN AN ORDER.'
-    },
-    
+    }
     ],
 }
 ]
 
 function OrdersCard() {
-    const classes = useStyles();
-
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
     const [selected, setSelected] = React.useState([]);
@@ -615,19 +543,26 @@ function OrdersCard() {
                             </SubCard>
                         </Grid>
                     </Grid> */}
-                    <Container component="section" maxWidth="lg" className={classes.root}>
-                        <Grid container spacing={8} alignItems="stretch">
-                            {orders.map((item) => (
-                                // <Grid key={item.id} item xs={12} sm={6} md={12} lg={0}>
-                                //     <OrderCard order={item}/>
-                                // </Grid>
-                                <Grid item xs={8} sm={5}>
-                                    <OrderCard order={item}/>
-                                </Grid>
+                    <Grid  container spacing={2}>
+                        <SubCard title={T.manage_orders}>
 
-                            ))}
-                        </Grid>
-                    </Container>
+                            <Grid item xs={12}>
+                                <Grid container justifyContent="center" spacing={2}>
+
+                                    <Grid container spacing={10}>
+
+                                        {orders.map((item) => (
+                                                <Grid key={item.id} item xs={12} sm={6} md={12} lg={0}>
+                                                    <OrderCard order={item}/>
+                                                </Grid>
+
+                                        ))}
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </SubCard>
+
+                    </Grid>
 
                 </MainCard>
                 <FormControlLabel

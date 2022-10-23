@@ -1632,7 +1632,7 @@
     "@types/yargs" "^15.0.0"
     "chalk" "^4.0.0"
 
-"@material-ui/core@^4.0.0 || ^5.0.0-beta":
+"@material-ui/core@^4.0.0 || ^5.0.0-beta", "@material-ui/core@4.x":
   "integrity" "sha512-tr7xekNlM9LjA6pagJmL8QCgZXaubWUwkJnoYcMKd4gw/t4XiyvnTkjdGrUVicyB2BsdaAv1tvow45bPM4sSwQ=="
   "resolved" "https://registry.npmjs.org/@material-ui/core/-/core-4.12.4.tgz"
   "version" "4.12.4"
@@ -1650,7 +1650,7 @@
     "react-is" "^16.8.0 || ^17.0.0"
     "react-transition-group" "^4.4.0"
 
-"@material-ui/styles@^4.11.5":
+"@material-ui/styles@^4.11.5", "@material-ui/styles@4.x":
   "integrity" "sha512-o/41ot5JJiUsIETME9wVLAJrmIWL3j0R0Bj2kCOLbSfqEkKf0fmaPt+5vtblUh5eXr2S+J/8J3DaCb10+CzPGA=="
   "resolved" "https://registry.npmjs.org/@material-ui/styles/-/styles-4.11.5.tgz"
   "version" "4.11.5"
@@ -1700,6 +1700,22 @@
     "@babel/runtime" "^7.4.4"
     "prop-types" "^15.7.2"
     "react-is" "^16.8.0 || ^17.0.0"
+
+"@mui-treasury/styles@^1.13.1":
+  "integrity" "sha512-vfAx8RWFnEVBSTK2KbgU6n4EwYXzWSU3VRsUUbRkuPXgdc8PO6O9/HAht8s/qMOCCa+UZ/s+dfjvN9iXPmW5SA=="
+  "resolved" "https://registry.npmjs.org/@mui-treasury/styles/-/styles-1.13.1.tgz"
+  "version" "1.13.1"
+  dependencies:
+    "@mui-treasury/utils" "^0.4.1"
+    "color" "^3.1.2"
+
+"@mui-treasury/utils@^0.4.1":
+  "integrity" "sha512-XcJOUrQodx2VCouk6uvYw+MChVGXPy1abe7PxqpxIGEr6s1QwV8HhgA4q/+eq0//IQ6oDXGlym4PSDO3Yh/lHA=="
+  "resolved" "https://registry.npmjs.org/@mui-treasury/utils/-/utils-0.4.1.tgz"
+  "version" "0.4.1"
+  dependencies:
+    "lodash.get" "^4.4.2"
+    "lodash.isequal" "^4.5.0"
 
 "@mui/core@5.0.0-alpha.51":
   "integrity" "sha512-Dum1SM5qk9eGeC6TLw6Au/53yuHqpkFM65hFYEtZccjJhUtdQMve+XVsmhgYPNkhiC0HyWgIR8Q5E1q5Fkc+pQ=="
@@ -3828,10 +3844,10 @@
     "strip-ansi" "^6.0.0"
     "wrap-ansi" "^6.2.0"
 
-"clsx@^1.0.4", "clsx@^1.1.1":
-  "integrity" "sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA=="
-  "resolved" "https://registry.npmjs.org/clsx/-/clsx-1.1.1.tgz"
-  "version" "1.1.1"
+"clsx@^1.0.4", "clsx@^1.1.1", "clsx@^1.2.1":
+  "integrity" "sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg=="
+  "resolved" "https://registry.npmjs.org/clsx/-/clsx-1.2.1.tgz"
+  "version" "1.2.1"
 
 "co@^4.6.0":
   "integrity" "sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ="
@@ -3892,7 +3908,7 @@
     "color-name" "^1.0.0"
     "simple-swizzle" "^0.2.2"
 
-"color@^3.0.0":
+"color@^3.0.0", "color@^3.1.2":
   "integrity" "sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA=="
   "resolved" "https://registry.npmjs.org/color/-/color-3.2.1.tgz"
   "version" "3.2.1"
@@ -7863,6 +7879,16 @@
   "integrity" "sha1-gteb/zCmfEAF/9XiUVMArZyk168="
   "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   "version" "4.0.8"
+
+"lodash.get@^4.4.2":
+  "integrity" "sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ=="
+  "resolved" "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.2.tgz"
+  "version" "4.4.2"
+
+"lodash.isequal@^4.5.0":
+  "integrity" "sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ=="
+  "resolved" "https://registry.npmjs.org/lodash.isequal/-/lodash.isequal-4.5.0.tgz"
+  "version" "4.5.0"
 
 "lodash.memoize@^4.1.2":
   "integrity" "sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4="
