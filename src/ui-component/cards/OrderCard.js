@@ -28,7 +28,7 @@ import { padding } from '@mui/system';
 
 const useStyles = makeStyles(({ spacing }) => ({
     card: {
-        marginTop: 50,
+        marginTop: 0,
         borderRadius: spacing(0.5),
         transition: '0.3s',
         width: '100%',
@@ -108,7 +108,7 @@ function OrderCard({ order }) {
 
     return (
     <Card sx={{ minWidth: 300, border: 3, borderColor: boxcolor() }}>
-            <div>
+            <div >
                 <div className="ordercard-wrapper">
                     <div className="ordercard-header" style={{ backgroundColor: boxcolor(), color: textColor() }}>
                         <div className='ordercard-header-number'>
@@ -130,13 +130,13 @@ function OrderCard({ order }) {
                         <div>
                         </div>
                     </div>
-                    <Card  className={cx(classes.card, cardShadowStyles.root)}>
-                        <CardHeader
+                    <Card className={cx(classes.card, cardShadowStyles.root)}>
+                        {/* <CardHeader
                         style={{backgroundColor: textColor()}}
                             className={cardHeaderShadowStyles.root}
                             classes={cardHeaderStyles}
                             title={order.orderType == 'takeAway' ? 'Take Away' : order.orderType == 'delivery' ? 'Delivery' :  'Dine In'}
-                        />
+                        /> */}
                         <CardContent className={classes.content}>
                             <Table>
                                 <TableHead>
@@ -164,9 +164,9 @@ function OrderCard({ order }) {
                     </Card>
                 </div>
             </div>
-            <CardActions>
+            {/* <CardActions>
                 <Button size="small">Learn More</Button>
-            </CardActions>
+            </CardActions> */}
         </Card>
     )
 }
